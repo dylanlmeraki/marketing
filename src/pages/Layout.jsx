@@ -348,16 +348,16 @@ export default function Layout({ children, currentPageName }) {
                   <div className="w-8 h-8 rounded-md bg-blue-900/30 flex items-center justify-center border border-blue-900/50 group-hover:border-blue-500 transition-colors">
                     <Phone className="w-4 h-4 text-blue-400" />
                   </div>
-                  <a href="tel:+14154196079" className="hover:text-white transition-colors">
-                    (415)-419-6079
+                  <a href="tel:+14156894428" className="hover:text-white transition-colors">
+                    (415)-689-4428
                   </a>
                 </li>
                 <li className="flex items-center gap-3 text-gray-300 group">
                   <div className="w-8 h-8 rounded-md bg-blue-900/30 flex items-center justify-center border border-blue-900/50 group-hover:border-blue-500 transition-colors">
                     <Mail className="w-4 h-4 text-blue-400" />
                   </div>
-                  <a href="mailto:dylanl.peci@gmail.com" className="hover:text-white transition-colors break-all">
-                    dylanl.peci@gmail.com
+                  <a href="mailto:amwaldman@sbcglobal.net" className="hover:text-white transition-colors break-all">
+                    amwaldman@sbcglobal.net
                   </a>
                 </li>
                 <li className="flex items-start gap-3 text-gray-300 group">

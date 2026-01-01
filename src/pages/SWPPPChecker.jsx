@@ -209,7 +209,7 @@ ${additionalDetails || 'No additional details provided'}${filesSection}`;
         <a href="https://pacificengineeringsf.com/ClientAuth" class="button">Access Your Client Portal</a>
       </div>
 
-      <p>If you have urgent questions, call us at <strong>(415)-419-6079</strong>.</p>
+      <p>If you have urgent questions, call us at <strong>(415)-689-4428</strong>.</p>
       <p style="margin-top: 20px;">Best regards,<br><strong>Pacific Engineering Team</strong></p>
     </div>
   </div>
@@ -710,7 +710,7 @@ ${additionalDetails || 'No additional details provided'}${filesSection}`;
                       <div className="bg-blue-50 border border-blue-200 rounded-md p-4 mb-6">
                         <p className="text-blue-900 font-bold mb-1">⏱️ Estimated Response Time</p>
                         <p className="text-blue-700 text-sm">
-                          Our team typically responds within <strong>24-48 hours</strong> during business days. For urgent matters, call (415)-419-6079.
+                          Our team typically responds within <strong>24-48 hours</strong> during business days. For urgent matters, call (415)-689-4428.
                         </p>
                       </div>
 
@@ -807,9 +807,9 @@ ${additionalDetails || 'No additional details provided'}${filesSection}`;
                 <p className="text-gray-300 mb-6 leading-relaxed">
                   Our dedicated teams with decades of combined expertise in environmental and structural engineering will help you navigate compliance efficiently.
                 </p>
-                <a href="tel:+14154196079">
+                <a href="tel:+14156894428">
                   <Button size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white rounded-md font-bold tracking-tight h-14 px-10 shadow-lg hover:shadow-xl hover:shadow-blue-500/50 active:scale-95 transition-all duration-300 group">
-                    Call for Immediate Assistance: (415)-419-6079
+                    Call for Immediate Assistance: (415)-689-4428
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </Button>
                 </a>

@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { createPageUrl } from "@/utils";
 
 const STORAGE_KEY = "peci_chatbot_state_v2";
-const PHONE = "+14154196079";
+const PHONE = "+14156894428";
 const CONSULTATION_PATH = createPageUrl("SWPPPChecker");
 const CONTACT_PATH = createPageUrl("Contact");
 
