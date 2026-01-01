@@ -226,8 +226,8 @@ ${additionalDetails || 'No additional details provided'}${filesSection}`;
       setSubmittedData({
         locations: addresses.filter(a => a.addressLine || a.county),
         service: serviceOptions.find(opt => opt.value === formData.serviceInterest)?.label,
-        contactDate: preferredContactDate,s
-        filesCount: uploadedFiles.length
+        contactDate: preferredContactDate,
+        filesCount: uploadedFiles.length,
       });
 
       setSubmitted(true);
