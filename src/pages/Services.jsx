@@ -351,12 +351,14 @@ export default function Services() {
               Every project is unique. Let's discuss your specific requirements and determine if a SWPPP is needed for your site.
             </p>
             
-            <Link to={createPageUrl("SWPPPChecker")}>
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-gradient-to-r hover:from-white hover:to-blue-50 px-10 py-7 text-lg font-bold tracking-tight rounded-md shadow-xl hover:shadow-2xl hover:-translate-y-1 active:scale-95 transition-all duration-300 group">
-                Begin Free Consultation
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </Button>
-            </Link>
+        <div className="flex justify-center mt-8">
+          <Link to={createPageUrl("Consultation")}>
+            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-10 py-7 text-lg font-bold tracking-tight rounded-md shadow-lg hover:shadow-xl hover:shadow-blue-500/50 hover:-translate-y-1 active:scale-95 transition-all duration-300 group">
+                Get a Consultation
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </Button>
+          </Link>
+        </div>
           </AnimatedSection>
         </div>
       </section>

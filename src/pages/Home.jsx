@@ -243,7 +243,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
+{/* Why Choose Us */}
       <section className="py-20 px-6 bg-slate-100 relative overflow-hidden">
         {/* Subtle construction texture */}
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 pointer-events-none"></div>
@@ -251,55 +251,57 @@ export default function Home() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection direction="left">
-              <h2 className="text-slate-900 mb-6 text-4xl font-bold md:text-5xl tracking-tight">Why Pacific Engineering?
+              <h2 className="text-slate-900 mb-6 text-4xl font-bold text-center tracking-tight md:text-5xl">Why Pacific Engineering?
               </h2>
-              <div className="w-16 h-1 bg-blue-600 mb-8"></div>
+              <div className="bg-blue-600 mx-auto my-8 px-32 w-16 h-1"></div>
               
-              <p className="text-xl text-slate-600 mb-10 leading-relaxed">
-                With over 40 years of experience in private, commercial, and institutional full-scale civil engineering and construction contractiong, we deliver comprehensive solutions and deliverables keeping projects on track with the utmost professional efficiency.
+              <p className="text-slate-600 mb-10 text-xl text-center leading-relaxed">With over 40 years of experience in private, commercial, and institutional full-scale civil engineering and construction contractiong, we deliver comprehensive solutions and deliverables keeping projects on track with the utmost professional efficiency.
+
               </p>
+            <div className="flex-items-center group-justify-center">  
+              <div className="space mb-12">
               
-              <div className="space-y-6 mb-12">
-                <div className="flex gap-5 items-center group">
+                <div className="mx-auto py-2 group flex gap-5 items-center">
                   <div className="flex-shrink-0">
                     <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-700 rounded-md flex items-center justify-center shadow-lg shadow-blue-500/40 group-hover:scale-110 transition-transform">
                       <CheckCircle className="w-7 h-7 text-white" />
                     </div>
                   </div>
-                  <div className="text-center">
-                    <h3 className="text-xl font-bold text-slate-900 mb-1 uppercase tracking-wide">Expert Knowledge</h3>
-                    <p className="text-slate-600">Deep understanding of federal, state, and local stormwater regulations</p>
+                  <div className="">
+                    <h3 className="text-slate-900 mb-1 text-xl font-bold text-left uppercase tracking-wide">EXPERT KNOWLEDGE</h3>
+                    <p className="text-slate-600 text-left">Complete understanding of federal, state, and local stormwater regulations</p>
                   </div>
                 </div>
 
-                <div className="flex gap-5 items-center group">
+                <div className="mx-auto py-2 group flex gap-5 items-center">
                   <div className="flex-shrink-0">
                     <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-800 rounded-md flex items-center justify-center shadow-lg shadow-blue-600/40 group-hover:scale-110 transition-transform">
                       <CheckCircle className="w-7 h-7 text-white" />
                     </div>
                   </div>
-                  <div className="text-center">
-                    <h3 className="text-xl font-bold text-slate-900 mb-1 uppercase tracking-wide">Proven Track Record</h3>
-                    <p className="text-slate-600">100% client satisfaction across 2,5K+ projects</p>
+                  <div className="">
+                    <h3 className="text-slate-900 mb-1 text-xl font-bold text-left uppercase tracking-wide">PROVEN TRACK RECORD</h3>
+                    <p className="text-slate-600 text-center">100% client satisfaction across 2,5K+ projects</p>
                   </div>
                 </div>
 
-                <div className="flex gap-5 items-center group">
+                <div className="mx-auto py-2 group flex gap-5 items-center">
                   <div className="flex-shrink-0">
-                    <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-md flex items-center justify-center shadow-lg shadow-blue-700/40 group-hover:scale-110 transition-transform">
+                    <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-900 rounded-md flex items-center justify-center shadow-lg shadow-blue-800/40 group-hover:scale-110 transition-transform">
                       <CheckCircle className="w-7 h-7 text-white" />
                     </div>
                   </div>
-                  <div className="text-center">
-                    <h3 className="text-xl font-bold text-slate-900 mb-1 max-w-md uppercase tracking-wide">Responsive Service</h3>
-                    <p className="text-slate-600">Quick turnaround times and dedicated project support</p>
+                  <div className="">
+                    <h3 className="text-slate-900 mb-1 text-xl font-bold text-left uppercase tracking-wide">RESPONSIVE SERVICE</h3>
+                    <p className="text-slate-600 text-left">Quick turnaround times and dedicated project support</p>
                   </div>
                 </div>
               </div>
+            </div>  
 
               <div className="text-center">
                 <Link to={createPageUrl("About")}>
-                  <Button size="lg" className="bg-slate-900 hover:bg-blue-600 text-white px-10 py-6 text-sm font-bold tracking-tight rounded-md inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 duration-300 group">
+                  <Button size="lg" className="bg-slate-900 hover:bg-gradient-to-br from-blue-400 to-blue-900 text-white px-10 py-6 text-sm font-bold tracking-tight rounded-md inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 duration-300 group">
                     About Us
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </Button>
@@ -312,8 +314,8 @@ export default function Home() {
                 <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800" alt="San Francisco construction projects"
                 className="w-full h-full object-cover" />
               </div>
-              <div className="absolute -bottom-8 -left-8 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-600 p-10 rounded-md shadow-2xl border-4 border-white transform hover:scale-105 transition-all">
-                <div className="text-5xl font-bold text-white text-center mb-2 tracking-tight">2.5K+</div>
+              <div className="p-10 bg-gradient-to-br mt-1 mx-auto px-10 py-10 rounded-xl absolute -bottom-8 -left-8 from-blue-600 via-blue-700 to-cyan-600 shadow-2xl border-4 border-white transform-all hover:scale-105">
+                <div className="text-white mb-2 text-5xl font-bold text-center tracking-tight">2.5K+</div>
                 <div className="text-blue-50 font-bold uppercase tracking-widest text-sm">Successful Projects</div>
               </div>
             </AnimatedSection>
