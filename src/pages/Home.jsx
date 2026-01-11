@@ -54,7 +54,7 @@ export default function Home() {
                 <span className="text-blue-500">& Construction Inc.</span>
               </h1>
 
-              <div className="w-48 h-1 bg-blue-500 mx-auto mt-2 mb-8"></div>
+              <div className="w-48 h-1 bg-blue-500 mx-auto mt-4 mb-8"></div>
 
               <div className="mb-12">
                 <p className="text-gray-300 mb-4 mx-auto text-xl leading-relaxed md:text-2xl max-w-4xl font-light">
@@ -62,7 +62,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+              <div className="flex flex-col sm:flex-row gap-10 justify-center mb-16">
                 <Link to={createPageUrl("ServicesOverview")}>
                   <Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-900 px-10 py-7 text-lg font-bold tracking-tight rounded-md inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 group">
                     Our Services
@@ -71,7 +71,7 @@ export default function Home() {
                 </Link>
                 <Link to={createPageUrl("Consultation")}>
                   <ShinyButton
-                    className="group inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-bold tracking-tight text-lg px-20 py-7 rounded-sm shadow-lg hover:shadow-blue-700/60 hover:-translate-y-1 active:scale-95 transition-all duration-300"
+                    className="group inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-bold tracking-tight text-lg px-28 py-7 rounded-sm shadow-lg hover:shadow-blue-700/60 hover:-translate-y-1 active:scale-95 transition-all duration-300"
                     style={{
                       "--shiny-cta-bg": "#0ea5e9",
                       "--shiny-cta-bg-subtle": "rgba(14, 165, 233, 0.2)",
@@ -164,7 +164,7 @@ export default function Home() {
                     <div className="bg-slate-100 rounded-md w-20 h-20 flex items-center justify-center mb-6 group-hover:bg-gradient-to-br group-hover:from-cyan-300 group-hover:to-cyan-600 group-hover:shadow-lg group-hover:shadow-cyan-500/40 transition-all duration-300">
                       <Shield className="w-10 h-10 text-slate-700 group-hover:text-white transition-colors" />
                     </div>
-                    <h3 className="text-slate-900 text-2xl font-bold mb-4 uppercase tracking-wide">Construction Service</h3>
+                    <h3 className="text-slate-900 text-2xl font-bold mb-4 uppercase tracking-wide group-hover:text-cyan-600 transition-colors">Construction Service</h3>
                     <p className="text-slate-600 mb-8 leading-relaxed">We are fully licensed and ready to take on any and all work from residential additions, multi-unit residential, commercial mixed-use, up to public and governmental infrastructure.
                     </p>
                     <ul className="space-y-4 w-full flex flex-col items-center">
@@ -198,7 +198,7 @@ export default function Home() {
                     <div className="bg-slate-100 rounded-md w-20 h-20 flex items-center justify-center mb-6 group-hover:bg-gradient-to-br group-hover:from-teal-300 group-hover:to-teal-600 group-hover:shadow-lg group-hover:shadow-teal-500/40 transition-all duration-300">
                       <ClipboardCheck className="w-10 h-10 text-slate-700 group-hover:text-white transition-colors" />
                     </div>
-                    <h3 className="text-slate-900 text-2xl font-bold mb-4 uppercase tracking-wide">Inspections & Testing</h3>
+                    <h3 className="text-slate-900 text-2xl font-bold mb-4 uppercase tracking-wide group-hover:text-teal-600 transition-colors">Inspections & Testing</h3>
                     <p className="text-slate-600 mb-8 leading-relaxed">Thorough inspections to ensure ongoing compliance with recommendation and implementation of areas for improvement.
 
                     </p>
@@ -233,7 +233,7 @@ export default function Home() {
                     <div className="bg-slate-100 rounded-md w-20 h-20 flex items-center justify-center mb-6 group-hover:bg-gradient-to-br group-hover:from-emerald-300 group-hover:to-emerald-600 group-hover:shadow-lg group-hover:shadow-emerald-500/40 transition-all duration-300">
                       <ClipboardCheck className="w-10 h-10 text-slate-700 group-hover:text-white transition-colors" />
                     </div>
-                    <h3 className="text-slate-900 text-2xl font-bold mb-4 uppercase tracking-wide">Engineering Consulting</h3>
+                    <h3 className="text-slate-900 text-2xl font-bold mb-4 uppercase tracking-wide group-hover:text-emerald-600 transition-colors">Engineering Consulting</h3>
                     <p className="text-slate-600 mb-8 leading-relaxed">Professional engineering expertise across civil and structural disciplines, providing innovative solutions and implementation to meet the unique needs of your project - from large-scale infrastructure to single family residential additions.
 
                     </p>
