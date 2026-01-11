@@ -46,7 +46,7 @@ export default function Home() {
           className="mix-blend-screen"
         />
 
-        <div className="text-center relative z-10 max-w-7xl px-4 w-full">
+        <div className="text-center relative z-10 max-w-6xl px-4 w-full">
           <AnimatedSection direction="up" duration={0.8} className="bg-slate-900/80 mx-auto opacity-100 rounded-md backdrop-blur-sm max-w-6xl shadow-2xl border-t-4 border-blue-600">
             <div className="px-6 py-12 md:py-20 md:px-12">
               <h1 className="text-white mb-6 text-4xl font-bold tracking-tight leading-tight md:text-6xl lg:text-7xl">
@@ -71,7 +71,7 @@ export default function Home() {
                 </Link>
                 <Link to={createPageUrl("Consultation")}>
                   <ShinyButton
-                    className="group inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-bold tracking-tight text-lg px-14 py-7 rounded-md shadow-lg hover:shadow-blue-500/60 hover:-translate-y-1 active:scale-95 transition-all duration-300"
+                    className="group inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-bold tracking-tight text-lg px-18 py-7 rounded-10 shadow-lg hover:shadow-blue-500/60 hover:-translate-y-1 active:scale-95 transition-all duration-300"
                     style={{
                       "--shiny-cta-bg": "#0ea5e9",
                       "--shiny-cta-bg-subtle": "rgba(14, 165, 233, 0.2)",
