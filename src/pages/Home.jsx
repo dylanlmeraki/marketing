@@ -48,13 +48,13 @@ export default function Home() {
 
         <div className="text-center relative z-10 max-w-6xl px-4 w-full">
           <AnimatedSection direction="up" duration={0.8} className="bg-slate-900/80 mx-auto opacity-100 rounded-md backdrop-blur-sm max-w-6xl shadow-2xl border-t-4 border-blue-600">
-            <div className="px-6 py-12 md:py-20 md:px-12">
+            <div className="px-6 pt-8 md:py-16 md:px-110">
               <h1 className="text-white mb-6 text-4xl font-bold tracking-tight leading-tight md:text-6xl lg:text-7xl">
                 Pacific Engineering <br/>
                 <span className="text-blue-500">& Construction Inc.</span>
               </h1>
 
-              <div className="w-40 h-1 bg-blue-500 mx-auto mb-8"></div>
+              <div className="w-48 h-1 bg-blue-500 mx-auto mt-2mb-8"></div>
 
               <div className="mb-12">
                 <p className="text-gray-300 mb-4 mx-auto text-xl leading-relaxed md:text-2xl max-w-4xl font-light">
@@ -66,12 +66,12 @@ export default function Home() {
                 <Link to={createPageUrl("ServicesOverview")}>
                   <Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-900 px-10 py-7 text-lg font-bold tracking-tight rounded-md inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 group">
                     Our Services
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    <ArrowRight className="m-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </Button>
                 </Link>
                 <Link to={createPageUrl("Consultation")}>
                   <ShinyButton
-                    className="group inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-bold tracking-tight text-lg px-18 py-7 rounded-10 shadow-lg hover:shadow-blue-500/60 hover:-translate-y-1 active:scale-95 transition-all duration-300"
+                    className="group inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-bold tracking-tight text-lg px-18 py-7 rounded-sm shadow-lg hover:shadow-blue-700/60 hover:-translate-y-1 active:scale-95 transition-all duration-300"
                     style={{
                       "--shiny-cta-bg": "#0ea5e9",
                       "--shiny-cta-bg-subtle": "rgba(14, 165, 233, 0.2)",
@@ -82,7 +82,7 @@ export default function Home() {
                     }}
                   >
                     Free Consultation
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    <ArrowRight className="m-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </ShinyButton>
                 </Link>
               </div>
