@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Menu, X, Phone, Mail, MapPin, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ShinyButton } from "@/components/shiny-button";
 import FloatingButtons from "@/components/FloatingButtons";
 import { apiClient } from "@/components/utils/apiClient";
 import ErrorBoundary from "@/components/ErrorBoundary";
@@ -18,6 +18,15 @@ export default function Layout({ children, currentPageName }) {
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [user, setUser] = useState(null);
   const location = useLocation();
+  const consultationShinyVars = {
+    "--shiny-cta-bg": "#0ea5e9",
+    "--shiny-cta-bg-subtle": "rgba(14, 165, 233, 0.2)",
+    "--shiny-cta-fg": "#ffffff",
+    "--shiny-cta-highlight": "#2563eb",
+    "--shiny-cta-highlight-subtle": "#38bdf8",
+    "--shiny-cta-shadow": "rgba(59, 130, 246, 0.4)",
+    "--shiny-cta-glow": "rgba(56, 189, 248, 0.55)",
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -159,9 +168,12 @@ export default function Layout({ children, currentPageName }) {
 
               <div className="flex items-center gap-3 ml-4 h-full">
                 <Link to={createPageUrl("SWPPPChecker")}>
-                  <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-0 font-bold tracking-tight text-xs h-9 rounded-md shadow-lg shadow-blue-900/20 hover:shadow-blue-500/50 active:scale-95 transition-all duration-300">
+                  <ShinyButton
+                    className="group inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-bold tracking-tight text-xs h-9 px-4 rounded-md shadow-lg shadow-blue-900/20 hover:shadow-blue-500/50 active:scale-95 transition-all duration-300"
+                    style={consultationShinyVars}
+                  >
                     Free Consultation
-                  </Button>
+                  </ShinyButton>
                 </Link>
               </div>
             </nav>
@@ -239,9 +251,12 @@ export default function Layout({ children, currentPageName }) {
               </Link>
 
               <Link to={createPageUrl("SWPPPChecker")} onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="w-full bg-blue-600 hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-700 mt-2">
+                <ShinyButton
+                  className="group w-full text-white font-bold tracking-tight mt-2 rounded-md shadow-lg hover:shadow-blue-500/50 active:scale-95 transition-all duration-300"
+                  style={consultationShinyVars}
+                >
                   Free Consultation
-                </Button>
+                </ShinyButton>
               </Link>
             </nav>
           </div>
