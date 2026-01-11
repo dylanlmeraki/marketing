@@ -54,7 +54,7 @@ export default function Home() {
                 <span className="text-blue-500">& Construction Inc.</span>
               </h1>
 
-              <div className="w-48 h-1 bg-blue-500 mx-auto mt-2mb-8"></div>
+              <div className="w-48 h-1 bg-blue-500 mx-auto mt-2 mb-8"></div>
 
               <div className="mb-12">
                 <p className="text-gray-300 mb-4 mx-auto text-xl leading-relaxed md:text-2xl max-w-4xl font-light">
@@ -71,7 +71,7 @@ export default function Home() {
                 </Link>
                 <Link to={createPageUrl("Consultation")}>
                   <ShinyButton
-                    className="group inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-bold tracking-tight text-lg px-18 py-7 rounded-sm shadow-lg hover:shadow-blue-700/60 hover:-translate-y-1 active:scale-95 transition-all duration-300"
+                    className="group inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-bold tracking-tight text-lg px-20 py-7 rounded-sm shadow-lg hover:shadow-blue-700/60 hover:-translate-y-1 active:scale-95 transition-all duration-300"
                     style={{
                       "--shiny-cta-bg": "#0ea5e9",
                       "--shiny-cta-bg-subtle": "rgba(14, 165, 233, 0.2)",
@@ -82,7 +82,7 @@ export default function Home() {
                     }}
                   >
                     Free Consultation
-                    <ArrowRight className="m-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    <ArrowRight className="m-1 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </ShinyButton>
                 </Link>
               </div>
@@ -113,7 +113,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
               Consulting Engineers & Contractors
             </h2>
-            <div className="w-40 h-1 bg-blue-600 mx-auto mb-8"></div>
+            <div className="w-56 h-1 bg-blue-600 mx-auto mt- 2 mb-6"></div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">Full-scale civil and structural engineering and construction plans developed and implemented by our teams of in-house Engineers, QSD/QSPs, and construction experts.
 
             Helping you ensure on-time, on budget, full compliance, and with maximum creative outlook for your project.
@@ -130,7 +130,7 @@ export default function Home() {
                     <div className="bg-slate-100 rounded-md w-20 h-20 flex items-center justify-center mb-6 group-hover:bg-gradient-to-br group-hover:from-blue-400 group-hover:to-blue-600 group-hover:shadow-lg group-hover:shadow-blue-500/40 transition-all duration-300">
                       <FileText className="w-10 h-10 text-slate-700 group-hover:text-white transition-colors" />
                     </div>
-                    <h3 className="text-slate-900 text-2xl font-bold mb-4 uppercase tracking-wide">Stormwater Planning</h3>
+                    <h3 className="text-slate-900 text-2xl font-bold mb-4 uppercase tracking-wide group-hover:text-blue-600 transition-colors">Stormwater Planning</h3>
                     <p className="text-slate-600 mb-8 leading-relaxed">Custom plans from initial assessments, tailored practical BMP designs, and full local, state, and federal regulatory compliance assurance and permitting walkthroughs.
                     </p>
                     <ul className="space-y-4 w-full flex flex-col items-center">
