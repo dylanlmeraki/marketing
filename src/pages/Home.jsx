@@ -46,8 +46,8 @@ export default function Home() {
           className="mix-blend-screen"
         />
 
-        <div className="text-center relative z-10 max-w-6xl px-4 w-full">
-          <AnimatedSection direction="up" duration={0.8} className="bg-slate-900/80 mx-auto opacity-100 rounded-md backdrop-blur-sm max-w-6xl shadow-2xl border-t-4 border-blue-600">
+        <div className="text-center relative z-10 max-w-7xl px-4 w-full">
+          <AnimatedSection direction="up" duration={0.8} className="bg-slate-900/80 mx-auto opacity-100 rounded-md backdrop-blur-sm max-w-6xl shadow-2xl border-t-6 border-blue-600">
             <div className="px-6 pt-8 md:py-16 md:px-110">
               <h1 className="text-white mb-6 text-4xl font-bold tracking-tight leading-tight md:text-6xl lg:text-7xl">
                 Pacific Engineering <br/>
@@ -70,8 +70,7 @@ export default function Home() {
                   </Button>
                 </Link>
                 <Link to={createPageUrl("Consultation")}>
-                  <ShinyButton
-                    className="group inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-bold tracking-tight text-lg px-28 py-7 rounded-sm shadow-lg hover:shadow-blue-700/60 hover:-translate-y-1 active:scale-95 transition-all duration-300"
+                  <ShinyButton className="group inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-bold tracking-tight text-lg px-28 py-7 rounded-sm shadow-lg hover:shadow-blue-700/60 hover:-translate-y-1 active:scale-95 transition-all duration-300"
                     style={{
                       "--shiny-cta-bg": "#0ea5e9",
                       "--shiny-cta-bg-subtle": "rgba(14, 165, 233, 0.2)",
@@ -79,10 +78,9 @@ export default function Home() {
                       "--shiny-cta-highlight-subtle": "#38bdf8",
                       "--shiny-cta-shadow": "rgba(59, 130, 246, 0.4)",
                       "--shiny-cta-glow": "rgba(56, 189, 248, 0.55)",
-                    }}
-                  >
+                    }}>
                     Free Consultation
-                    <ArrowRight className="m-1 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </ShinyButton>
                 </Link>
               </div>
@@ -107,7 +105,7 @@ export default function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-20 px-6 bg-slate-50 border-t border-slate-200">
+      <section className="py-20 px-6 bg-slate-50 border-t-4 border-gradient-to-r from-blue-400 to-cyan-500">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection direction="up" className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
