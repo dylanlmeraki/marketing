@@ -71,7 +71,7 @@ export default function Home() {
                 </Link>
                 <Link to={createPageUrl("Consultation")}>
                   <ShinyButton
-                    className="group inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-bold tracking-tight text-lg px-10 py-7 rounded-md shadow-lg hover:shadow-blue-500/60 hover:-translate-y-1 active:scale-95 transition-all duration-300"
+                    className="group inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-bold tracking-tight text-lg px-14 py-7 rounded-md shadow-lg hover:shadow-blue-500/60 hover:-translate-y-1 active:scale-95 transition-all duration-300"
                     style={{
                       "--shiny-cta-bg": "#0ea5e9",
                       "--shiny-cta-bg-subtle": "rgba(14, 165, 233, 0.2)",
