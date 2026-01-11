@@ -70,7 +70,7 @@ export default function Home() {
                   </Button>
                 </Link>
                 <Link to={createPageUrl("Consultation")}>
-                  <ShinyButton className="group inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-bold tracking-tight text-lg px-28 py-7 rounded-sm shadow-lg hover:shadow-blue-700/60 hover:-translate-y-1 active:scale-95 transition-all duration-300"
+                  <ShinyButton className="group inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-bold tracking-tight text-lg px-32 py-6 rounded-6 shadow-lg hover:shadow-blue-700/60 hover:-translate-y-1 active:scale-95 transition-all duration-300"
                     style={{
                       "--shiny-cta-bg": "#0ea5e9",
                       "--shiny-cta-bg-subtle": "rgba(14, 165, 233, 0.2)",
@@ -79,8 +79,7 @@ export default function Home() {
                       "--shiny-cta-shadow": "rgba(59, 130, 246, 0.4)",
                       "--shiny-cta-glow": "rgba(56, 189, 248, 0.55)",
                     }}>
-                    Free Consultation
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    Free Consultation <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </ShinyButton>
                 </Link>
               </div>
