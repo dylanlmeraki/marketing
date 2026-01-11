@@ -52,8 +52,8 @@ export default function Home() {
                 Pacific Engineering <br/>
                 <span className="text-blue-500">& Construction Inc.</span>
               </h1>
-              
-              <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
+
+              <div className="w-40 h-1 bg-blue-500 mx-auto mb-8"></div>
 
               <div className="mb-12">
                 <p className="text-gray-300 mb-4 mx-auto text-xl leading-relaxed md:text-2xl max-w-4xl font-light">
@@ -102,7 +102,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
               Consulting Engineers & Contractors
             </h2>
-            <div className="w-16 h-1 bg-blue-600 mx-auto mb-8"></div>
+            <div className="w-40 h-1 bg-blue-600 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">Full-scale civil and structural engineering and construction plans developed and implemented by our teams of in-house Engineers, QSD/QSPs, and construction experts.
 
             Helping you ensure on-time, on budget, full compliance, and with maximum creative outlook for your project.
