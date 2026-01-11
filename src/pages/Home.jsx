@@ -47,7 +47,7 @@ export default function Home() {
         />
 
         <div className="text-center relative z-10 max-w-7xl px-4 w-full">
-          <AnimatedSection direction="up" duration={0.8} className="bg-slate-900/80 mx-auto opacity-100 rounded-md backdrop-blur-sm max-w-6xl shadow-2xl border-t-6 border-blue-600">
+          <AnimatedSection direction="up" duration={0.8} className="bg-slate-900/80 mx-auto opacity-100 rounded-md backdrop-blur-sm max-w-6xl shadow-2xl border-t-4 border-blue-600">
             <div className="px-6 pt-8 md:py-16 md:px-110">
               <h1 className="text-white mb-6 text-4xl font-bold tracking-tight leading-tight md:text-6xl lg:text-7xl">
                 Pacific Engineering <br/>
@@ -62,7 +62,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-10 justify-center mb-16">
+              <div className="flex flex-col sm:flex-row gap-10 justify-center items-center mb-16">
                 <Link to={createPageUrl("ServicesOverview")}>
                   <Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-900 px-10 py-7 text-lg font-bold tracking-tight rounded-md inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 group">
                     Our Services
