@@ -1,3 +1,12 @@
+import React, { CSSProperties } from "react";
+
+type ShinyButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  children: React.ReactNode;
+  className?: string;
+  style?: CSSProperties;
+  type?: "button" | "submit" | "reset";
+};
+
 export function ShinyButton({
   children,
   onClick,
@@ -5,7 +14,7 @@ export function ShinyButton({
   style = {},
   type = "button",
   ...props
-}) {
+}: ShinyButtonProps) {
   const cssVars = {
     "--shiny-cta-bg": style["--shiny-cta-bg"] || "#0f172a",
     "--shiny-cta-bg-subtle": style["--shiny-cta-bg-subtle"] || "rgba(15, 23, 42, 0.85)",
@@ -15,11 +24,11 @@ export function ShinyButton({
     "--shiny-cta-shadow": style["--shiny-cta-shadow"] || "rgba(37, 99, 235, 0.45)",
     "--shiny-cta-glow": style["--shiny-cta-glow"] || "rgba(59, 130, 246, 0.45)",
     ...style,
-  };
+  } as CSSProperties;
 
   return (
     <>
-      <style jsx>{`
+      <style>{`
         @import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,500&display=swap");
 
         @property --gradient-angle {
