@@ -55,7 +55,7 @@ export default function Home() {
                 <span className="text-blue-500">& Construction Inc.</span>
               </h1>
 
-              <div className="w-48 h-1 bg-blue-500 mx-auto mt-4 mb-8"></div>
+              <div className="w-48 h-1 gradient-to-r from-blue-500 to-peach-300 mx-auto mt-4 mb-8"></div>
 
               <div className="mb-12">
                 <p className="text-gray-300 mb-4 mx-auto text-xl leading-relaxed md:text-2xl max-w-4xl font-light">
@@ -65,11 +65,7 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-10 justify-center items-center mb-16">
                 <Link to={createPageUrl("ServicesOverview")}>
-				<Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-900 px-10 py-7 text-lg font-bold tracking-tight rounded-md inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 group">
-						Our Services
-					<ArrowRight className="m-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-				</Button>
-			<FlowButton className="mt-1" text="Our Services" />
+					<FlowButton className="mt-1" text="Our Services" />
                 </Link>
                 <Link to={createPageUrl("Consultation")}>
                   <ShinyButton
