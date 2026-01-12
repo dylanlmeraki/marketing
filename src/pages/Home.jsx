@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { CheckCircle, FileText, ClipboardCheck, Shield, ArrowRight, Phone, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { ShinyButton } from "@/components/shiny-button";
 import { Card } from "@/components/ui/card";
+import { FlowButton } from "@/components/ui/FlowButton";
 import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
 import AnimatedGridBackground from "@/components/AnimatedGridBackground";
@@ -64,10 +64,14 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-10 justify-center items-center mb-16">
                 <Link to={createPageUrl("ServicesOverview")}>
-                  <Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-900 px-10 py-7 text-lg font-bold tracking-tight rounded-md inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 group">
-                    Our Services
-                    <ArrowRight className="m-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  </Button>
+										<<<<<<< main-marketing-v2
+																			<Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-900 px-10 py-7 text-lg font-bold tracking-tight rounded-md inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 group">
+																				Our Services
+																				<ArrowRight className="m-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+																			</Button>
+										=======
+																			<FlowButton className="mt-1" text="Our Services" />
+										>>>>>>> main
                 </Link>
                 <Link to={createPageUrl("Consultation")}>
                   <ShinyButton
