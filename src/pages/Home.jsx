@@ -55,7 +55,7 @@ export default function Home() {
                 <span className="text-blue-500">& Construction Inc.</span>
               </h1>
 
-              <div className="w-48 h-1 gradient-to-r from-blue-500 to-peach-300 mx-auto mt-4 mb-8"></div>
+              <div className="w-48 h-1 bg-gradient-to-r from-blue-500 to-peach-300 mx-auto mt-4 mb-8"></div>
 
               <div className="mb-12">
                 <p className="text-gray-300 mb-4 mx-auto text-xl leading-relaxed md:text-2xl max-w-4xl font-light">
@@ -79,8 +79,7 @@ export default function Home() {
                       "--shiny-cta-glow": "rgba(56, 189, 248, 0.55)",
                     }}
                   >
-                    Free Consultation
-                    <ArrowRight className="w-5 h-5 shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
+                  <span Free Consultation <ArrowRight className="w-5 h-5 shrink-0 group-hover:translate-x-1 transition-transform duration-300" />>
                   </ShinyButton>
                 </Link>
               </div>
