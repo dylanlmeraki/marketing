@@ -81,8 +81,8 @@ export default function Home() {
 					 >
 					Free Consultation <ArrowRight className="w-5 h-5 shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
 				</ShinyButton>
-			/Link>
-        </div>
+			  </Link>
+    	    </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-gray-700 pt-10">
                 <div className="text-center">
