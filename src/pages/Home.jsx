@@ -79,7 +79,7 @@ export default function Home() {
                       "--shiny-cta-glow": "rgba(56, 189, 248, 0.55)",
                     }}
 					 >
-					Free Consultation <ArrowRight>
+					Free Consultation <ArrowRight/>
 				  </ShinyButton>
 			  </Link>
     	    </div>
