@@ -63,7 +63,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-10 justify-center items-center mb-16">
+              <div className="group inline-flex flex-col sm:flex-row gap-10 justify-center items-center mb-16">
                 <Link to={createPageUrl("ServicesOverview")}>
 					<FlowButton className="mt-1" text="Our Services" />
                 </Link>
@@ -79,9 +79,9 @@ export default function Home() {
                       "--shiny-cta-glow": "rgba(56, 189, 248, 0.55)",
                     }}
 					 >
-					Free Consultation <ArrowRight/>
+					Free Consultation { ArroowRight }
 				  </ShinyButton>
-			  </Link>
+    	  		</Link>
     	    </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-gray-700 pt-10">
@@ -103,7 +103,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Overview */}
+	<section className="py-24 px-6 bg-slate-900 relative overflow-hidden border-t-4 border-blue-600"></section>
+    
+	{/* Services Overview */}
       <section className="py-20 px-6 bg-slate-50 border-t-4 border-gradient-to-r from-blue-400 to-cyan-500">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection direction="up" className="text-center mb-16">
@@ -117,7 +119,7 @@ export default function Home() {
 
             Keep everything on track.</p>
           </AnimatedSection>
-
+			
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <Link to={createPageUrl("Services")} className="block group h-full">
               <AnimatedSection direction="left" delay={0.1} className="h-full">
