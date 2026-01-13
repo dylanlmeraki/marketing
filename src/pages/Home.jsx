@@ -262,8 +262,8 @@ export default function Home() {
 
           <AnimatedSection direction="up" delay={0.5} className="text-center mt-16">
             <Link to={createPageUrl("Services")}>
-              <ShinyButton
-               View All Services <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              <ShinyButton >
+               View All Services { ArrowRight }
               </ShinyButton>
             </Link>
           </AnimatedSection>
