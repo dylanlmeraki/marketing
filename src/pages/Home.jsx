@@ -80,7 +80,6 @@ export default function Home() {
                     }}
 					 >
 					Free Consultation
-					<ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
 				  </ShinyButton>
     	  		</Link>
     	    </div>
@@ -104,7 +103,7 @@ export default function Home() {
         </div>
       </section>
 
-	<section className="py-24 px-6 bg-slate-900 relative overflow-hidden border-t-4 border-blue-600"></section>
+	<section className="py-4 px-6 bg-slate-900 relative overflow-hidden border-t-4 border-blue-600"></section>
     
 	{/* Services Overview */}
       <section className="py-20 px-6 bg-slate-50 border-t-4 border-gradient-to-r from-blue-400 to-cyan-500">
@@ -263,9 +262,18 @@ export default function Home() {
 
           <AnimatedSection direction="up" delay={0.5} className="text-center mt-16">
             <Link to={createPageUrl("Services")}>
-              <ShinyButton >
-               View All Services
-				<ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />  
+                  <ShinyButton
+                    className="group inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-bold tracking-tight text-lg px-8 sm:px-12 py-7 rounded-md shadow-lg hover:shadow-blue-700/60 hover:-translate-y-1 active:scale-95 transition-all duration-300"
+                    style={{
+                      "--shiny-cta-bg": "#0ea5e9",
+                      "--shiny-cta-bg-subtle": "rgba(14, 165, 233, 0.2)",
+                      "--shiny-cta-highlight": "#2563eb",
+                      "--shiny-cta-highlight-subtle": "#38bdf8",
+                      "--shiny-cta-shadow": "rgba(59, 130, 246, 0.4)",
+                      "--shiny-cta-glow": "rgba(56, 189, 248, 0.55)",
+                    }}
+					 >
+               View All Services 
               </ShinyButton>
             </Link>
           </AnimatedSection>
