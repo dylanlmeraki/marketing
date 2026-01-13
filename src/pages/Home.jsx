@@ -24,7 +24,7 @@ export default function Home() {
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-slate-900">
         <div className="absolute inset-0 opacity-50">
           <div className="absolute inset-0 bg-[url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68eb69c51ce08e4c9fdca015/3778041a3_Bay_Area_Evening_Cityscape.jpg')] bg-cover bg-center" />
-          <div className="absolute inset-0 bg-slate-900/60 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-slate-900/60 opacity-80 mix-blend-multiply"></div>
         </div>
 
         {/* Animated grid overlay (above cover image, below content) */}
