@@ -79,7 +79,7 @@ export default function Home() {
                       "--shiny-cta-glow": "rgba(56, 189, 248, 0.55)",
                     }}
 					 >
-					Free Consultation <ArrowRight />
+					Free Consultation <ArrowRight>
 				  </ShinyButton>
 			  </Link>
     	    </div>
@@ -260,10 +260,9 @@ export default function Home() {
 
           <AnimatedSection direction="up" delay={0.5} className="text-center mt-16">
             <Link to={createPageUrl("Services")}>
-              <Button size="lg" className="bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-900 hover:to-blue-600 text-white px-10 py-6 text-sm font-bold tracking-tight rounded-md inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 duration-300 group">
-               View All Services
-               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </Button>
+              <ShinyButton
+               View All Services <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </ShinyButton>
             </Link>
           </AnimatedSection>
         </div>
