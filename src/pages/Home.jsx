@@ -79,8 +79,8 @@ export default function Home() {
                       "--shiny-cta-glow": "rgba(56, 189, 248, 0.55)",
                     }}
 					 >
-					Free Consultation <ArrowRight className="w-5 h-5 shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
-				</ShinyButton>
+					Free Consultation <ArrowRight />
+				ShinyButton>
 			  </Link>
     	    </div>
 
