@@ -79,7 +79,8 @@ export default function Home() {
                       "--shiny-cta-glow": "rgba(56, 189, 248, 0.55)",
                     }}
 					 >
-					Free Consultation { ArroowRight }
+					Free Consultation
+					<ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
 				  </ShinyButton>
     	  		</Link>
     	    </div>
@@ -263,7 +264,8 @@ export default function Home() {
           <AnimatedSection direction="up" delay={0.5} className="text-center mt-16">
             <Link to={createPageUrl("Services")}>
               <ShinyButton >
-               View All Services { ArrowRight }
+               View All Services
+				<ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />  
               </ShinyButton>
             </Link>
           </AnimatedSection>
