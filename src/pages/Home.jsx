@@ -65,7 +65,7 @@ export default function Home() {
 
               <div className="group inline-flex flex-col sm:flex-row gap-10 justify-center items-center mb-16">
                 <Link to={createPageUrl("ServicesOverview")}>
-					<FlowButton className="mt-1" text="Our Services" />
+					<FlowButton className="mt-1 px-8 py-8" text="Our Services" />
                 </Link>
                 <Link to={createPageUrl("Consultation")}>
                   <ShinyButton
