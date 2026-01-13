@@ -80,7 +80,7 @@ export default function Home() {
                     }}
 					 >
 					Free Consultation <ArrowRight />
-				ShinyButton>
+				  </ShinyButton>
 			  </Link>
     	    </div>
 
