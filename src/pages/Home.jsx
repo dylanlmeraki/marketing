@@ -4,6 +4,7 @@ import { createPageUrl } from "@/utils";
 import { CheckCircle, FileText, ClipboardCheck, Shield, ArrowRight, Phone, Mail } from "lucide-react";
 import { ShinyButton } from "@/components/shiny-button";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { FlowButton } from "@/components/ui/FlowButton";
 import AnimatedSection from "@/components/AnimatedSection";
 import SEO from "@/components/SEO";
@@ -20,7 +21,7 @@ export default function Home() {
       />
       
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-slate-900">
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-slate-900 opacity 80">
         <div className="absolute inset-0 opacity-50">
           <div className="absolute inset-0 bg-[url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68eb69c51ce08e4c9fdca015/3778041a3_Bay_Area_Evening_Cityscape.jpg')] bg-cover bg-center" />
           <div className="absolute inset-0 bg-slate-900/60 mix-blend-multiply"></div>
@@ -62,13 +63,9 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-10 justify-center items-center mb-16">
+              <div className="group inline-flex flex-col sm:flex-row gap-10 justify-center items-center mb-16">
                 <Link to={createPageUrl("ServicesOverview")}>
-				<Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-900 px-10 py-7 text-lg font-bold tracking-tight rounded-md inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 group">
-						Our Services
-					<ArrowRight className="m-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-				</Button>
-			<FlowButton className="mt-1" text="Our Services" />
+					<FlowButton className="mt-1 px-8 py-8" text="Our Services" />
                 </Link>
                 <Link to={createPageUrl("Consultation")}>
                   <ShinyButton
@@ -81,12 +78,11 @@ export default function Home() {
                       "--shiny-cta-shadow": "rgba(59, 130, 246, 0.4)",
                       "--shiny-cta-glow": "rgba(56, 189, 248, 0.55)",
                     }}
-                  >
-                    Free Consultation
-                    <ArrowRight className="w-5 h-5 shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
-                  </ShinyButton>
-                </Link>
-              </div>
+					 >
+					Free Consultation
+				  </ShinyButton>
+    	  		</Link>
+    	    </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-gray-700 pt-10">
                 <div className="text-center">
@@ -107,7 +103,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Overview */}
+	<section className="py-4 px-6 bg-slate-900 relative overflow-hidden border-t-4 border-blue-600"></section>
+    
+	{/* Services Overview */}
       <section className="py-20 px-6 bg-slate-50 border-t-4 border-gradient-to-r from-blue-400 to-cyan-500">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection direction="up" className="text-center mb-16">
@@ -121,7 +119,7 @@ export default function Home() {
 
             Keep everything on track.</p>
           </AnimatedSection>
-
+			
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <Link to={createPageUrl("Services")} className="block group h-full">
               <AnimatedSection direction="left" delay={0.1} className="h-full">
@@ -264,10 +262,19 @@ export default function Home() {
 
           <AnimatedSection direction="up" delay={0.5} className="text-center mt-16">
             <Link to={createPageUrl("Services")}>
-              <Button size="lg" className="bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-900 hover:to-blue-600 text-white px-10 py-6 text-sm font-bold tracking-tight rounded-md inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 duration-300 group">
-               View All Services
-               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </Button>
+                  <ShinyButton
+                    className="group inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-bold tracking-tight text-lg px-8 sm:px-12 py-7 rounded-md shadow-lg hover:shadow-blue-700/60 hover:-translate-y-1 active:scale-95 transition-all duration-300"
+                    style={{
+                      "--shiny-cta-bg": "#0ea5e9",
+                      "--shiny-cta-bg-subtle": "rgba(14, 165, 233, 0.2)",
+                      "--shiny-cta-highlight": "#2563eb",
+                      "--shiny-cta-highlight-subtle": "#38bdf8",
+                      "--shiny-cta-shadow": "rgba(59, 130, 246, 0.4)",
+                      "--shiny-cta-glow": "rgba(56, 189, 248, 0.55)",
+                    }}
+					 >
+               View All Services 
+              </ShinyButton>
             </Link>
           </AnimatedSection>
         </div>
