@@ -1,109 +1,92 @@
-/**
- * LLM Invocation API Endpoint
- * Replaces Base44's InvokeLLM integration
- * Uses OpenAI from Vercel environment variables
- */
 import OpenAI from "openai";
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 
-export const config = {
-  runtime: "nodejs",
-};
-
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-  // Optional (only set if you have a proxy or compatible gateway)
-  baseURL: process.env.OPENAI_BASE_URL || undefined,
-  organization: process.env.OPENAI_ORG_ID || undefined,
-  project: process.env.OPENAI_PROJECT_ID || undefined,
-});
+type ResponseType = "text" | "json";
 
 interface LLMRequest {
   prompt: string;
   model?: string;
   max_tokens?: number;
   temperature?: number;
-  response_type?: "text" | "json";
-  response_json_schema?: object;
+  response_type?: ResponseType;
+  response_json_schema?: unknown;
   context?: string;
 }
 
-function withCors(headers: HeadersInit = {}): HeadersInit {
-  return {
-    ...headers,
-    "Content-Type": "application/json",
-    // If you want to lock this down later, replace * with your domain(s)
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "POST,OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type, Authorization",
-  };
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+  baseURL: process.env.OPENAI_BASE_URL || undefined,
+  organization: process.env.OPENAI_ORG_ID || undefined,
+  project: process.env.OPENAI_PROJECT_ID || undefined,
+});
+
+function setCors(res: VercelResponse) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Cache-Control", "no-store");
 }
 
-function json(status: number, body: unknown): Response {
-  return new Response(JSON.stringify(body), { status, headers: withCors() });
-}
-
-function clampNumber(
-  value: unknown,
-  fallback: number,
-  min: number,
-  max: number
-): number {
+function clampNumber(value: unknown, fallback: number, min: number, max: number): number {
   const n = typeof value === "number" && Number.isFinite(value) ? value : fallback;
   return Math.min(max, Math.max(min, n));
 }
 
-export default async function handler(req: Request): Promise<Response> {
+function safeJsonParse<T = unknown>(value: unknown): T | null {
+  if (typeof value === "object" && value !== null) return value as T;
+  if (typeof value !== "string") return null;
+  try {
+    return JSON.parse(value) as T;
+  } catch {
+    return null;
+  }
+}
+
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  setCors(res);
+
   if (req.method === "OPTIONS") {
-    return new Response(null, { status: 204, headers: withCors() });
+    return res.status(204).end();
   }
 
   if (req.method !== "POST") {
-    return json(405, { error: "Method not allowed" });
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
   if (!process.env.OPENAI_API_KEY) {
-    return json(500, { error: "Missing OPENAI_API_KEY" });
+    return res.status(500).json({ error: "Missing OPENAI_API_KEY" });
   }
 
-  let body: LLMRequest;
-  try {
-    body = (await req.json()) as LLMRequest;
-  } catch {
-    return json(400, { error: "Invalid JSON body" });
+  const body = safeJsonParse<LLMRequest>(req.body);
+  if (!body) {
+    return res.status(400).json({ error: "Invalid JSON body" });
   }
 
   const prompt = (body.prompt || "").trim();
   if (!prompt) {
-    return json(400, { error: "Missing prompt" });
+    return res.status(400).json({ error: "Missing prompt" });
   }
 
   const model = (body.model || "gpt-4o-mini").trim();
   const max_tokens = clampNumber(body.max_tokens, 1024, 1, 8192);
   const temperature = clampNumber(body.temperature, 0.7, 0, 2);
 
-  const response_type = body.response_type;
-  const response_json_schema = body.response_json_schema;
   const context = typeof body.context === "string" ? body.context.trim() : "";
+  const useJsonResponse = body.response_type === "json" || !!body.response_json_schema;
 
-  const useJsonResponse = response_type === "json" || !!response_json_schema;
-
-  // Keep messages simple and safe
   const messages: OpenAI.ChatCompletionMessageParam[] = [];
 
-  // If a JSON schema is provided, we don't rely on an API feature that may vary;
-  // we instruct the model in-system to comply (best effort) and still request json_object mode.
+  // If JSON requested, force "JSON only" behavior (best-effort)
   if (useJsonResponse) {
-    const schemaHint = response_json_schema
-      ? `\n\nReturn JSON that matches this schema as closely as possible:\n${JSON.stringify(
-          response_json_schema
-        )}`
+    const schemaText = body.response_json_schema
+      ? `Return JSON matching this schema as closely as possible:\n${JSON.stringify(body.response_json_schema)}`
       : "";
 
     messages.push({
       role: "system",
       content:
-        "You must respond with a valid JSON object only. Do not include markdown, code fences, or extra text." +
-        schemaHint,
+        "Respond with a valid JSON object ONLY. Do not include markdown, code fences, or extra text.\n" +
+        schemaText,
     });
   }
 
@@ -129,17 +112,15 @@ export default async function handler(req: Request): Promise<Response> {
       try {
         content = JSON.parse(rawContent);
       } catch {
-        // If the model didn't comply, return raw text (caller can decide how to handle)
+        // Return raw if parsing failed; caller can handle
         content = rawContent;
       }
     }
 
-    return json(200, { content, model });
-  } catch (error) {
-    // Avoid leaking secrets; return a readable error
-    const message =
-      error instanceof Error ? error.message : "LLM request failed";
-    console.error("LLM invocation error:", error);
-    return json(500, { error: message });
+    return res.status(200).json({ content, model });
+  } catch (err) {
+    console.error("LLM invocation error:", err);
+    const message = err instanceof Error ? err.message : "LLM request failed";
+    return res.status(500).json({ error: message });
   }
 }
