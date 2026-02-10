@@ -1,15 +1,5 @@
-/**
- * Email Sending API Endpoint
- * Replaces Base44's SendEmail integration
- * Uses Resend for email delivery (Vercel env vars)
- */
 import { Resend } from "resend";
-
-export const config = {
-  runtime: "nodejs",
-};
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 interface EmailRequest {
   to: string | string[];
@@ -18,57 +8,59 @@ interface EmailRequest {
   text?: string;
   from?: string;
 
-  // Additive (optional) fields—won't break existing callers
+  // additive extras (won't break existing callers)
   cc?: string | string[];
   bcc?: string | string[];
   replyTo?: string;
 }
 
-function withCors(headers: HeadersInit = {}): HeadersInit {
-  return {
-    ...headers,
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "POST,OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type, Authorization",
-  };
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+function setCors(res: VercelResponse) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Cache-Control", "no-store");
 }
 
-function json(status: number, body: unknown): Response {
-  return new Response(JSON.stringify(body), { status, headers: withCors() });
+function safeJsonParse<T = unknown>(value: unknown): T | null {
+  if (typeof value === "object" && value !== null) return value as T;
+  if (typeof value !== "string") return null;
+  try {
+    return JSON.parse(value) as T;
+  } catch {
+    return null;
+  }
 }
 
 function normalizeEmailList(value?: string | string[]): string[] | undefined {
   if (!value) return undefined;
-  const list = Array.isArray(value) ? value : [value];
-  const cleaned = list.map((s) => String(s).trim()).filter(Boolean);
+  const arr = Array.isArray(value) ? value : [value];
+  const cleaned = arr.map((s) => String(s).trim()).filter(Boolean);
   return cleaned.length ? cleaned : undefined;
 }
 
-export default async function handler(req: Request): Promise<Response> {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  setCors(res);
+
   if (req.method === "OPTIONS") {
-    return new Response(null, { status: 204, headers: withCors() });
+    return res.status(204).end();
   }
 
   if (req.method !== "POST") {
-    return json(405, { error: "Method not allowed" });
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
   if (!process.env.RESEND_API_KEY) {
-    return json(500, { error: "Missing RESEND_API_KEY" });
+    return res.status(500).json({ error: "Missing RESEND_API_KEY" });
   }
 
-  let body: EmailRequest;
-  try {
-    body = (await req.json()) as EmailRequest;
-  } catch {
-    return json(400, { error: "Invalid JSON body" });
+  const body = safeJsonParse<EmailRequest>(req.body);
+  if (!body) {
+    return res.status(400).json({ error: "Invalid JSON body" });
   }
 
   const to = normalizeEmailList(body.to);
-  const cc = normalizeEmailList(body.cc);
-  const bcc = normalizeEmailList(body.bcc);
-
   const subject = (body.subject || "").trim();
   const html = typeof body.html === "string" ? body.html : undefined;
   const text = typeof body.text === "string" ? body.text : undefined;
@@ -79,12 +71,15 @@ export default async function handler(req: Request): Promise<Response> {
     "Pacific Engineering <noreply@pacificengineeringsf.com>";
 
   if (!to?.length || !subject) {
-    return json(400, { error: "Missing required fields: to, subject" });
+    return res.status(400).json({ error: "Missing required fields: to, subject" });
   }
 
   if (!html && !text) {
-    return json(400, { error: "Provide either html or text" });
+    return res.status(400).json({ error: "Provide either html or text" });
   }
+
+  const cc = normalizeEmailList(body.cc);
+  const bcc = normalizeEmailList(body.bcc);
 
   try {
     const result = await resend.emails.send({
@@ -100,17 +95,13 @@ export default async function handler(req: Request): Promise<Response> {
 
     if (result.error) {
       console.error("Resend error:", result.error);
-      return json(502, {
-        success: false,
-        error: result.error.message || "Email service error",
-      });
+      return res.status(502).json({ success: false, error: result.error.message || "Email service error" });
     }
 
-    return json(200, { success: true, id: result.data?.id });
-  } catch (error) {
-    console.error("Email sending error:", error);
-    const message =
-      error instanceof Error ? error.message : "Server error";
-    return json(500, { error: message });
+    return res.status(200).json({ success: true, id: result.data?.id });
+  } catch (err) {
+    console.error("Email sending error:", err);
+    const message = err instanceof Error ? err.message : "Server error";
+    return res.status(500).json({ error: message });
   }
 }
