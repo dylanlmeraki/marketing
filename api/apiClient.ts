@@ -1,98 +1,90 @@
 /**
  * API Client - Replacement for Base44 SDK
- * 
- * This module provides all the integrations that were previously handled by Base44:
- * - LLM invocation (via OpenAI through Replit AI Integrations)
- * - Email sending (via Resend)
- * - File uploads (placeholder for future implementation)
+ * Vercel deployment: calls /api/* endpoints
  */
 
-interface LLMParams {
+export interface LLMParams {
   prompt: string;
   model?: string;
   max_tokens?: number;
   temperature?: number;
-  response_type?: 'text' | 'json';
+  response_type?: "text" | "json";
+  response_json_schema?: unknown;
   context?: string;
 }
 
-interface LLMResponse {
-  content: string;
-  model?: string;
-}
+export type LLMResult<T = unknown> = T | string;
 
-interface EmailParams {
+export interface EmailParams {
   to: string | string[];
   subject: string;
   html?: string;
   text?: string;
   from?: string;
+  cc?: string | string[];
+  bcc?: string | string[];
+  replyTo?: string;
 }
 
-interface UploadResult {
+export interface UploadResult {
   file_url: string;
   filename: string;
 }
 
-/**
- * Invoke LLM via the backend API endpoint
- */
-async function invokeLLM(params: LLMParams): Promise<LLMResponse> {
-  const response = await fetch('/api/invoke-llm', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+async function invokeLLM<T = unknown>(params: LLMParams): Promise<LLMResult<T>> {
+  const response = await fetch("/api/invoke-llm", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(params),
   });
-  
+
+  const data = await response.json().catch(() => null);
+
   if (!response.ok) {
-    const error = await response.json().catch(() => ({ error: 'LLM request failed' }));
-    throw new Error(error.error || 'LLM request failed');
+    const msg = data?.error || "LLM request failed";
+    throw new Error(msg);
   }
-  
-  return response.json();
+
+  // IMPORTANT: return content directly so callers can do aiResponse.title, etc.
+  return data?.content as LLMResult<T>;
 }
 
-/**
- * Send email via the backend API endpoint
- */
-async function sendEmail(params: EmailParams): Promise<{ success: boolean }> {
-  const response = await fetch('/api/send-email', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+async function sendEmail(params: EmailParams): Promise<{ success: boolean; id?: string }> {
+  const response = await fetch("/api/send-email", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(params),
   });
-  
+
+  const data = await response.json().catch(() => null);
+
   if (!response.ok) {
-    const error = await response.json().catch(() => ({ error: 'Email send failed' }));
-    throw new Error(error.error || 'Email send failed');
+    const msg = data?.error || "Email send failed";
+    throw new Error(msg);
   }
-  
-  return response.json();
+
+  return data;
 }
 
-/**
- * Upload file via the backend API endpoint
- */
 async function uploadFile(params: { file: File }): Promise<UploadResult> {
   const formData = new FormData();
-  formData.append('file', params.file);
-  
-  const response = await fetch('/api/upload-file', {
-    method: 'POST',
+  formData.append("file", params.file);
+
+  const response = await fetch("/api/upload-file", {
+    method: "POST",
     body: formData,
   });
-  
+
+  const data = await response.json().catch(() => null);
+
   if (!response.ok) {
-    const error = await response.json().catch(() => ({ error: 'File upload failed' }));
-    throw new Error(error.error || 'File upload failed');
+    const msg = data?.error || "File upload failed";
+    throw new Error(msg);
   }
-  
-  return response.json();
+
+  return data;
 }
 
-/**
- * API Client with organized integrations
- */
 export const apiClient = {
   integrations: {
     Core: {
